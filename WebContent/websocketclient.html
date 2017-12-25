@@ -10,6 +10,7 @@
     <input type="submit" value="Start" onclick="start()" />
   </div>
   <div id="messages"></div>
+  <img id="imagebase64" src=''></img>
   <script type="text/javascript">
     var webSocket = 
       new WebSocket('ws://localhost:8080/PraticeWebApplication/websocket');
@@ -27,8 +28,10 @@
     };
 
     function onMessage(event) {
-      document.getElementById('messages').innerHTML 
-        += '<br />' + event.data;
+// 	     document.getElementById('messages').innerHTML 
+//    	    += '<br />' + event.data;
+ 		 document.getElementById('imagebase64').src = 'data:image/png;base64,'+event.data;
+ 	
     }
 
     function onOpen(event) {
