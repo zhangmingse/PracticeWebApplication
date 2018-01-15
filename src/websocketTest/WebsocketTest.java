@@ -32,7 +32,7 @@ public class WebsocketTest {
 			InputStream imageFileInputStream = null;
 
 			for(int i = 0;i<total_image_number;i++) {
-				imageFileInputStream = new FileInputStream(path + (i+1) + ".jpg");
+				imageFileInputStream = new FileInputStream(path + (i+1) + ".bmp");
 				imageData[i] = new byte[imageFileInputStream.available()];
 				imageFileInputStream.read(imageData[i]);
 				imageFileInputStream.close();

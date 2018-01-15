@@ -7,15 +7,18 @@
 <body>
 
 	<div>
-		<input type="submit" value="GetBase64" onclick="getbase64()" />
-		<input type="submit" value="GetBinary" onclick="getbinary()" />
+		<input type="submit" value="GetBase64" onclick="start_get_base64()" />
+		<input type="submit" value="GetBinary" onclick="start_get_binary()" />
 	</div>
 	<div id="messages"></div>
 	<img id="imagebase64"></img>
-	<canvas id="imagecanvas" width="500" height="500">Your browser does not support the HTML5 canvas tag </canvas>
+	<canvas id="imagecanvas" width="1500" height="1000">Your browser does not support the HTML5 canvas tag </canvas>
 	<script type="text/javascript">
 		var imagecanvas = document.getElementById("imagecanvas");
 		var ctx = imagecanvas.getContext("2d");
+		var total_experiment_round = 99;
+		var current_experiment_round = 0;
+		var current_type = 1;//1:base64;2:binary
 
 		var image = new Image();
 		image.onload = function() {
@@ -24,13 +27,24 @@
 			ctx.drawImage(image, 0, 0);
 			mydate = new Date();
 			t3 = mydate.getTime();
-			console.log(t1 +"  "+t2+"  "+t3);
-			console.log((t2-t1) + " " + (t3-t2));
-			console.log("=======================");
+			//console.log(t1 +"  "+t2+"  "+t3);
+			console.log((t2-t1) + "      index : " + current_experiment_round);
+			//console.log("=======================");
+			if(current_experiment_round < total_experiment_round){
+				if(current_type == 1){
+					setTimeout(function(){getbase64()},100);
+				}else{
+					setTimeout(function(){getbinary()},100);
+				}
+				
+				
+				current_experiment_round = current_experiment_round + 1;
+			}
+			
 		}
 
 		var webSocket = new WebSocket(
-				'ws://localhost:8080/PraticeWebApplication/websocket');
+				'ws://192.168.1.103:8080/PraticeWebApplication/websocket');
 
 		webSocket.onerror = function(event) {
 			onError(event)
@@ -81,17 +95,28 @@
 			alert(event.data);
 		}
 
+		function start_get_base64(){
+			current_experiment_round = 0;
+			current_type = 1;//base64
+			getbase64();
+			return false;
+		}
 		function getbase64() {
 			mydate = new Date();
 			t1 = mydate.getTime();
 			webSocket.send('base64');
 			return false;
 		}
+		function start_get_binary(){
+			current_experiment_round = 0;
+			current_type = 2 ;//binary
+			getbinary();
+			return false;
+		}
 		function getbinary() {
 			mydate = new Date();
 			t1 = mydate.getTime();
 			webSocket.send('binary');
-			return false;
 		}
 	</script>
 </body>
