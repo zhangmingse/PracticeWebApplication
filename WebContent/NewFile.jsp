@@ -46,6 +46,7 @@
 	<img src="testimg.jsp">
 	<br/>
 	<mytag:helloworld/><br/>
+	<mytag:query user="root" url="jdbc:mysql://localhost:3306/testdatabase1" pass="root" driver="com.mysql.jdbc.Driver" sql="select * from user_table"/>
 
 </body>
 </html>

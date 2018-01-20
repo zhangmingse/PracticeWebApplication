@@ -29,6 +29,36 @@
     	<tag-class>test.HelloWorldTag</tag-class>
     	<body-content>empty</body-content>
     </tag>
+    <tag>
+    	<name>query</name>
+    	<tag-class>test.QueryTag</tag-class>
+    	<body-content>empty</body-content>
+    	<attribute>
+    		<name>driver</name>
+    		<required>true</required>
+    		<fragment>true</fragment>
+    	</attribute>
+		<attribute>
+    		<name>url</name>
+    		<required>true</required>
+    		<fragment>true</fragment>
+    	</attribute>
+		<attribute>
+    		<name>user</name>
+    		<required>true</required>
+    		<fragment>true</fragment>
+    	</attribute>
+		<attribute>
+    		<name>pass</name>
+    		<required>true</required>
+    		<fragment>true</fragment>
+    	</attribute>
+		<attribute>
+    		<name>sql</name>
+    		<required>true</required>
+    		<fragment>true</fragment>
+    	</attribute>
+    </tag>
 
 </taglib>
 
