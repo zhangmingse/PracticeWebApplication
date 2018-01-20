@@ -15,23 +15,32 @@
 <% out.println(new java.util.Date());%>
 <%
 Class.forName("com.mysql.jdbc.Driver");
-Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","root");
+Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/testdatabase1","root","root");
 Statement stmt = conn.createStatement();
-ResultSet rs = stmt.executeQuery("select user from user;");
+ResultSet rs = stmt.executeQuery("select testid,testtitle,testcontent,testauthor from testtable1;");
 
 %>
 <table border = 1>
+	<tr>
+	<td>title id</td>
+	<td>title </td>
+	<td>title content </td>
+	<td>author </td>
+	</tr>
 <%
 while(rs.next()){
 	%>
 	<tr>
 	<td><%=rs.getString(1) %></td>
+	<td><%=rs.getString(2) %></td>
+	<td><%=rs.getString(3) %></td>
+	<td><%=rs.getString(4) %></td>
 	</tr>
 	<%
 }
 conn.close();
 %>
 </table>
-
+<img src="testimg.jsp">
 </body>
 </html>
