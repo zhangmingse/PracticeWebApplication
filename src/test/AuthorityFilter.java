@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 @WebFilter(filterName = "authority", urlPatterns = "/*", initParams = {
 		@WebInitParam(name = "encoding", value = "utf-8"), @WebInitParam(name = "loginPage", value = "/login.jsp"),
-		@WebInitParam(name = "prologin", value = "/login") })
+		@WebInitParam(name = "prologin", value = "/login") },asyncSupported=true)
 public class AuthorityFilter implements Filter {
 	private FilterConfig config;
 
@@ -32,6 +32,7 @@ public class AuthorityFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		System.out.println("AuthorityFile doFilter");
 		String encoding = config.getInitParameter("encoding");
 		String loginPage = config.getInitParameter("loginPage");
 		String prologin = config.getInitParameter("prologin");

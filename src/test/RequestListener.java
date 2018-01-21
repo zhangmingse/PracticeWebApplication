@@ -18,7 +18,7 @@ public class RequestListener implements ServletRequestListener {
 
 	@Override
 	public void requestInitialized(ServletRequestEvent sre) {
-
+		System.out.println("RequestListener requestInitialized");
 		HttpServletRequest request = (HttpServletRequest)sre.getServletRequest();
 		HttpSession session = request.getSession(true);
 		String id = session.getId();

@@ -29,6 +29,7 @@ public class OnlineListener implements HttpSessionListener ,ServletContextListen
 
 	@Override
 	public void sessionCreated(HttpSessionEvent se) {
+		System.out.println("OnlineListener sessionCreated");
 		HttpSession session = se.getSession();
 		ServletContext application = session.getServletContext();
 		String sessionid = session.getId();
