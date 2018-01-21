@@ -52,11 +52,13 @@ public class DbDao {
 		return connection;
 	}
 	public ResultSet query(String sql,Object... args)throws Exception {
-		PreparedStatement pStatement = getConnection().prepareStatement(sql);
+		PreparedStatement pStatement = getConnection().prepareStatement(sql,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+		
 		for(int i = 0;i<args.length;i++) {
 			pStatement.setObject(i+1, args[i]);
 		}
-		return pStatement.executeQuery();
+		ResultSet rSet = pStatement.executeQuery();
+		return rSet;
 	}
 	public void modify(String sql,Object...args)throws Exception {
 		PreparedStatement pStatement = getConnection().prepareStatement(sql);
@@ -64,6 +66,14 @@ public class DbDao {
 			pStatement.setObject(i+1, args[i]);
 		}
 		pStatement.executeUpdate();
+		pStatement.close();
+	}
+	public void insert(String sql,Object...args) throws Exception{
+		PreparedStatement pStatement = getConnection().prepareStatement(sql);
+		for(int i = 0;i<args.length;i++) {
+			pStatement.setObject(i+1, args[i]);
+		}
+		pStatement.execute();
 		pStatement.close();
 	}
 	public void closeConn()throws Exception{

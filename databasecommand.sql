@@ -34,6 +34,16 @@ values("Obama","blackpeople");
 insert into user_table(username,userpass) 
 values("Tonny","ironman");
 
+create table online_info(
+	online_info_id INT NOT NULL AUTO_INCREMENT,
+	sessionid varchar(50) NOT NULL,
+	username varchar(50) NOT NULL,
+	ip varchar(50) NOT NULL,
+	page varchar(50) NOT NULL,
+	u_timestamp varchar(50) NOT NULL,
+	primary key(online_info_id)
+);
+
 
 create user 'testuser1'@'127.0.0.1' IDENTIFIED BY 'mysqlPASSWORD()110';
 
