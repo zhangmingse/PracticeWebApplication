@@ -17,7 +17,6 @@ for(String sessionid : online.keySet()){
 	<tr>
 	<td><%=sessionid %></td>
 	<td><%=online.get(sessionid) %></td>
-	<td><%=session.getAttribute("name") %></td>
 	</tr>
 	<%
 }
