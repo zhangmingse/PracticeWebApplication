@@ -22,7 +22,7 @@ import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import db.DbDao;
 
-@WebListener
+//@WebListener
 public class OnlineListener implements HttpSessionListener ,ServletContextListener{
 	
 	public static final String ONLINE_STR = "online";

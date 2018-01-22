@@ -13,9 +13,9 @@ import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(filterName = "authority", urlPatterns = "/*", initParams = {
-		@WebInitParam(name = "encoding", value = "utf-8"), @WebInitParam(name = "loginPage", value = "/login.jsp"),
-		@WebInitParam(name = "prologin", value = "/login") },asyncSupported=true)
+//@WebFilter(filterName = "authority", urlPatterns = "/*", initParams = {
+//		@WebInitParam(name = "encoding", value = "utf-8"), @WebInitParam(name = "loginPage", value = "/login.jsp"),
+//		@WebInitParam(name = "prologin", value = "/login") },asyncSupported=true)
 public class AuthorityFilter implements Filter {
 	private FilterConfig config;
 

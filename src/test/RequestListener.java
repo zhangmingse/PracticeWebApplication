@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import db.DbDao;
 
-@WebListener
+//@WebListener
 public class RequestListener implements ServletRequestListener {
 
 	@Override
