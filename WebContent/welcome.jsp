@@ -8,6 +8,6 @@
 </head>
 <body>
 欢迎你:<%= session.getAttribute("name") %>
-<a href="NewFile.jsp">NewFile.jsp</a>
+<jsp:include page="linklist.html"></jsp:include>
 </body>
 </html>

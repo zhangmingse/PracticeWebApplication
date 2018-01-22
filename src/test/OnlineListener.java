@@ -23,7 +23,7 @@ import com.sun.org.apache.bcel.internal.generic.NEW;
 import db.DbDao;
 
 @WebListener
-public class OnlineListener implements HttpSessionListener ,ServletContextListener,HttpSessionAttributeListener{
+public class OnlineListener implements HttpSessionListener ,ServletContextListener{
 	
 	public static final String ONLINE_STR = "online";
 
@@ -102,25 +102,6 @@ public class OnlineListener implements HttpSessionListener ,ServletContextListen
 		}).start();
 	}
 
-	@Override
-	public void attributeAdded(HttpSessionBindingEvent se) {
-		if(se.getName() == "name") {
-			String username = (String)se.getValue();
-			if(username!=null && !username.equals("")) {
-				DbDao dbDao = new DbDao("com.mysql.jdbc.Driver","jdbc:mysql://localhost:3306/testdatabase1","root","root");
-				String sql = "update online_info set username = ? where sessionid = ? ";
-				try {
-					PreparedStatement pStatement = dbDao.getConnection().prepareStatement(sql);
-					pStatement.setObject(1,username);
-					pStatement.setObject(2,se.getSession().getId());
-					pStatement.executeUpdate();
-					pStatement.close();
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
-	}
 	
+
 }
