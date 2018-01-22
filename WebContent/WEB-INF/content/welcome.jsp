@@ -8,5 +8,10 @@
 </head>
 <body>
 welcome
+本站访问次数为：${applicationScope.counter}
+</br>
+${sessionScope.user} ： 您已经登陆</br>
+${requestScope.tip}
+
 </body>
 </html>
