@@ -28,13 +28,21 @@
 <constant name="struts.custom.i18n.resources" value="mess"></constant>
 <constant name="struts.enable.DynamicMethodInvocation" value="false"></constant>
 <constant name="struts.devMode" value="true"></constant>
-<package name="default" namespace="/" extends="struts-default"> 
-	<action name="login" class="action.LoginAction">
-		<result name="error">/WEB-INF/content/error.jsp</result>
-		<result name="success">/WEB-INF/content/welcome.jsp</result>
-	</action>
+<package name="directlyToJsp" namespace="/directlyToJsp" extends="struts-default">
 	<action name="*">
 		<result>/WEB-INF/content/{1}.jsp</result>
+	</action>
+</package>
+<package name="default" namespace="/" extends="struts-default">
+	<action name="*Action" class="action.SecondAction">
+		<result>/WEB-INF/content/welcome.jsp</result>
+	</action>
+	<action name="*" class="action.FirstAction">
+		<result>/WEB-INF/content/welcome.jsp</result>
+	</action>
+	<action name="loginAction" class="action.LoginAction">
+		<result name="error">/WEB-INF/content/error.jsp</result>
+		<result name="success">/WEB-INF/content/welcome.jsp</result>
 	</action>
 </package>
 

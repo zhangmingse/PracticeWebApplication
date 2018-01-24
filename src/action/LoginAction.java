@@ -32,6 +32,7 @@ public class LoginAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
+		System.out.println("loginaction");
 		
 		Integer counter = (Integer) ActionContext.getContext().getApplication().get("counter");
 		if (counter == null) {
