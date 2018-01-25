@@ -42,7 +42,10 @@
 	</action>
 	<action name="loginAction" class="action.LoginAction">
 		<result name="error">/WEB-INF/content/error.jsp</result>
-		<result name="success">/WEB-INF/content/welcome.jsp</result>
+		<result name="success" type="plainText">
+			<param name="location">/WEB-INF/content/welcome.jsp</param>
+			<param name="charSet">UTF-8</param>
+		</result>
 	</action>
 </package>
 
