@@ -3,6 +3,8 @@ package action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import exception.MyException;
+
 public class LoginAction extends ActionSupport {
 
 	/**
@@ -33,7 +35,12 @@ public class LoginAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		System.out.println("loginaction");
-		
+		if(getUsername().equals("exception1")) {
+			throw new MyException("用户名不能为exception1");
+		}
+		if(getUsername().equals("exception2")) {
+			throw new java.sql.SQLException("用户名不能为exception2");
+		}
 		Integer counter = (Integer) ActionContext.getContext().getApplication().get("counter");
 		if (counter == null) {
 			counter = 1;

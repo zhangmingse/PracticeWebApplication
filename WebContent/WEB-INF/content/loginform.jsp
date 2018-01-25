@@ -22,7 +22,7 @@ function secondActionsubmit(){
 <s:form action="/PracticeWebApplication/loginAction">
 	<s:textfield name="username" key="user"/>
 	<s:password name="password" key="pass"/>
-	<s:textfield name="target" key="target"></s:textfield>
+	<s:textfield name="target" key="target"/>
 	<s:submit key="loginAction"/>
 	<s:submit key="firstAction" onclick="firstActionsubmit()"/>
 	<s:submit key="secondAction" onclick="secondActionsubmit()"/>

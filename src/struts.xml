@@ -34,6 +34,14 @@
 	</action>
 </package>
 <package name="default" namespace="/" extends="struts-default">
+	<global-results>
+		<result name="sql">/WEB-INF/content/exception.jsp</result>
+		<result name="root">/WEB-INF/content/exception.jsp</result>
+	</global-results>
+	<global-exception-mappings>
+		<exception-mapping result="sql" exception="java.sql.SQLException"></exception-mapping>
+		<exception-mapping result="root" exception="java.lang.Exception"></exception-mapping>
+	</global-exception-mappings>
 	<action name="*Action" class="action.SecondAction">
 		<result>/WEB-INF/content/${target}.jsp</result>
 	</action>
@@ -41,6 +49,8 @@
 		<result>/WEB-INF/content/welcome.jsp</result>
 	</action>
 	<action name="loginAction" class="action.LoginAction">
+		<exception-mapping result="my" exception="exception.MyException"></exception-mapping>
+		<result name="my">/WEB-INF/content/exception.jsp</result>
 		<result name="error">/WEB-INF/content/error.jsp</result>
 		<result name="success" type="redirect">/directlyToJsp/welcome</result>
 	</action>
