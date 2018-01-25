@@ -35,7 +35,7 @@
 </package>
 <package name="default" namespace="/" extends="struts-default">
 	<action name="*Action" class="action.SecondAction">
-		<result>/WEB-INF/content/welcome.jsp</result>
+		<result>/WEB-INF/content/${target}.jsp</result>
 	</action>
 	<action name="*" class="action.FirstAction">
 		<result>/WEB-INF/content/welcome.jsp</result>
