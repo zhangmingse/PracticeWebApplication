@@ -14,7 +14,7 @@ public class FirstAction extends ActionSupport{
 	public String execute() throws Exception {
 		ActionContext.getContext().put("tip", "firstAction");
 		System.out.println("firstaction");
-		return SUCCESS;
+		return "second";
 	}
 	
 	
