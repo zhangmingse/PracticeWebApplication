@@ -12,7 +12,7 @@ public class FirstAction extends ActionSupport{
 
 	@Override
 	public String execute() throws Exception {
-		ActionContext.getContext().put("tip", "firstAction");
+		ActionContext.getContext().getApplication().put("tip", getText("firstAction"));
 		System.out.println("firstaction");
 		return "second";
 	}

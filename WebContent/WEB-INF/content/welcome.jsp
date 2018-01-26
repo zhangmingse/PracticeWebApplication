@@ -17,5 +17,7 @@ ${requestScope.tip}
 ---------
 <br/>
 username:<s:property value="username"/>
+<br/>
+<s:text name="target"/>
 </body>
 </html>

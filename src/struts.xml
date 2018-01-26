@@ -28,7 +28,7 @@
 <constant name="struts.custom.i18n.resources" value="mess"></constant>
 <constant name="struts.enable.DynamicMethodInvocation" value="false"></constant>
 <constant name="struts.devMode" value="true"></constant>
-
+<constant name="struts.custom.i18n.resources" value="mess"></constant>
 
 </struts>
 

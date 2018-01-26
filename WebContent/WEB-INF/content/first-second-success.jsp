@@ -8,5 +8,7 @@
 </head>
 <body>
 first second success jsp
+<br/>
+${applicationScope.tip}
 </body>
 </html>
