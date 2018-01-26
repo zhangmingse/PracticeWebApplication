@@ -19,7 +19,7 @@ function secondActionsubmit(){
 </script>
 </head>
 <body>
-<s:form action="/PracticeWebApplication/loginAction">
+<s:form action="login">
 	<s:textfield name="username" key="user"/>
 	<s:password name="password" key="pass"/>
 	<s:textfield name="target" key="target"/>
