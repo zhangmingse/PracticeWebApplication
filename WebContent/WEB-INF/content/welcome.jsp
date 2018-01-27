@@ -19,5 +19,23 @@ ${requestScope.tip}
 username:<s:property value="username"/>
 <br/>
 <s:text name="target"/>
+
+<br/>
+<s:set var="age" value="65"/>
+<s:if test="#age > 60"><s:text name="old"/></s:if>
+<s:elseif test="#age>35"><s:text name="middle"/></s:elseif>
+<s:elseif test="#age>18"><s:text name="yound"/></s:elseif>
+<s:else><s:text name="tenneger"/></s:else>
+<table border="1" width="200">
+<s:iterator status="st" value="{'疯狂java讲义','轻量级javaee企业应用实战','疯狂IOS讲义'}" var="name">
+<tr>
+<td><s:property value="#st.count"/></td>
+<td><s:property value="name"/></td>
+</tr>
+</s:iterator>
+</table>
+
+<br/>
+<s:debug/>
 </body>
 </html>
