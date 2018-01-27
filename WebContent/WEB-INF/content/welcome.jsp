@@ -36,6 +36,24 @@ username:<s:property value="username"/>
 </table>
 
 <br/>
+
+<table border="1" width="350">
+<tr>
+<th>书名</th>
+<th>作者</th>
+</tr>
+<s:iterator status="st" value="#{'疯狂java讲义':'李刚','轻量级javaee企业应用实战':'李刚','疯狂IOS讲义':'ligang'}" >
+<tr
+<s:if test = "#st.odd">
+style="background-color:#bbbbbb"
+</s:if>>
+<td><s:property value="key"/></td>
+<td><s:property value="value"/></td>
+</tr>
+</s:iterator>
+</table>
+
+<br/>
 <s:debug/>
 </body>
 </html>
