@@ -52,7 +52,13 @@ style="background-color:#bbbbbb"
 </tr>
 </s:iterator>
 </table>
-
+<br/>
+<s:bean name="bean.Person" var="p">
+<s:param name="name" value="'yeeku'"></s:param>
+<s:param name="age" value="29"></s:param>
+</s:bean>
+<s:property value="#p.name"/><br/>
+<s:property value="#p.age"/><br/>
 <br/>
 <s:debug/>
 </body>
