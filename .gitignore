@@ -1,0 +1,8 @@
+.settings/
+WebContent/META-INF/MANIFEST.MF
+.project
+.classpath
+*.class
+*.jar
+build/classes/
+*.png
