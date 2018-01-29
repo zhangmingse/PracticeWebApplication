@@ -19,10 +19,13 @@ public class NewsManager {
 		Session session = sf.openSession();
 		
 		Transaction tx = session.beginTransaction();
-		News news = new News();
-		news.setTitle("新闻标题");
-		news.setContent("新闻内容");
-		session.save(news);
+//		News news = new News();
+//		news.setTitle("新闻标题");
+//		news.setContent("新闻内容");
+//		session.save(news);
+		
+		News news2 = (News)session.load(News.class, 1);
+		System.out.println(news2.getFullcontent());
 		tx.commit();
 		session.close();
 		sf.close();

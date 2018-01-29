@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Formula;
+
 
 @Entity
 @Table(name="news_inf")
@@ -16,6 +18,14 @@ public class News {
 	private Integer id;
 	private String title;
 	private String content;
+	@Formula("(select concat(nt.title,nt.content) from news_inf nt where nt.id = id)")
+	private String fullcontent;
+	public String getFullcontent() {
+		return fullcontent;
+	}
+	public void setFullcontent(String fullcontent) {
+		this.fullcontent = fullcontent;
+	}
 	public Integer getId() {
 		return id;
 	}
