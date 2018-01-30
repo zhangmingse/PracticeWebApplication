@@ -14,8 +14,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
                         http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean name="person" class="spring.Person">
-		<property name="axe" ref="axe"></property>
+    <bean name="chinese" class="spring.Chinese">
+		<property name="axe" ref="stoneAxe"></property>
 	</bean>
-	<bean id="axe" class="spring.Axe"></bean>
+	<bean id="stoneAxe" class="spring.StoneAxe"></bean>
 </beans>
