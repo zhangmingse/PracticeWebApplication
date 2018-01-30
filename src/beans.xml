@@ -15,8 +15,9 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
                         http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean name="chinese" class="spring.Chinese">
-		<property name="axe" ref="steelAxe"></property>
+		<constructor-arg ref="steelAxe"/>
 	</bean>
 	<bean id="stoneAxe" class="spring.StoneAxe"></bean>
 	<bean id="steelAxe" class="spring.SteelAxe"></bean>
+	<bean class="spring.EmailNotifier"></bean>
 </beans>
