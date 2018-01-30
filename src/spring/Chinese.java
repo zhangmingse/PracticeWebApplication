@@ -3,6 +3,11 @@ package spring;
 public class Chinese implements Person {
 
 	private Axe axe;
+	public Chinese() {
+	}
+	public Chinese(Axe axe) {
+		this.axe = axe;
+	}
 
 	public Axe getAxe() {
 		return axe;
