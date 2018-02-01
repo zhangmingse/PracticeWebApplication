@@ -9,15 +9,33 @@
 	distributed under the License is distributed on an * "AS IS" BASIS, WITHOUT 
 	WARRANTIES OR CONDITIONS OF ANY * KIND, either express or implied. See the 
 	License for the * specific language governing permissions and limitations 
-	* under the License. */ -->
+	* under the License. */ <beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/aop"> -->
+
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
-                        http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean name="chinese" class="spring.Chinese">
-		<constructor-arg ref="steelAxe"/>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+                http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                http://www.springframework.org/schema/aop
+                http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+                http://www.springframework.org/schema/context
+				http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    <context:component-scan base-package="aspect">
+    	<context:include-filter type="annotation" expression="org.aspectj.lang.annotation.Aspect"/>
+    </context:component-scan>
+<!-- 	<aop:aspectj-autoproxy/>   -->
+	<bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"></bean>
+	<bean name="chinese" class="spring.Chinese">
+		<constructor-arg ref="steelAxe" />
 	</bean>
 	<bean id="stoneAxe" class="spring.StoneAxe"></bean>
 	<bean id="steelAxe" class="spring.SteelAxe"></bean>
-	<bean class="spring.EmailNotifier"></bean>
+	<bean id="aspecthello" class="aspect.Hello"></bean>
+	<bean id="aspectworld" class="aspect.World"></bean>
+<!-- 	<bean class="spring.EmailNotifier"></bean>  -->
 </beans>
